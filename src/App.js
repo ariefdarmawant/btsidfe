@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import AuthService from "./services/auth.service";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./pages/Login";
-import Feeds from "./pages/Feeds";
+import Home from "./pages/Home";
 import JwtService from "./services/jwt.service";
+import ChecklistItem from "./pages/ChecklistItems";
 
 function App() {
   const navigate = useNavigate();
@@ -12,10 +13,7 @@ function App() {
 
   useEffect(() => {
     const user = JwtService.getUser();
-    if (user) {
-      setCurrentUser(user);
-      navigate("/feeds");
-    } else {
+    if (!user) {
       navigate("/login");
     }
   }, [navigate]);
@@ -29,7 +27,8 @@ function App() {
     <div>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/feeds" element={<Feeds />} />
+        <Route exact path="/checklist" element={<Home />} />
+        <Route path="/checklist/:id" element={<ChecklistItem />} />
       </Routes>
     </div>
   );
