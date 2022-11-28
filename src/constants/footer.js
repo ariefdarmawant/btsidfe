@@ -1,0 +1,1 @@
+export const footer = ["About", "Help Center", "Terms of Service", "Privacy Policy", "Cookie Policy", "Accesibility", "Ads Info", "Blog", "Status", "Careers", "Brand Resources", "Advertising", "Marketing", "Twitter for Business", "Developers", "Directory", "Settings", "© 2022 Twitter, Inc."]
